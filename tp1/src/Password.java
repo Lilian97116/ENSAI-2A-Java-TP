@@ -69,6 +69,29 @@ public class Password {
     public static boolean isStrongPassword(String password) {
 
         // Code here
+        if (password.length() < 12){
+            return  false;
+        }
+        boolean contientUneMaj = false;
+        boolean contientDigit = false;
+        boolean contientWhiteSpace = false;
+
+        char c;
+        for (int i = 0; i < password.length(); i++){
+            c = password.charAt(i);
+
+            if (Character.isUpperCase(c)){
+                contientUneMaj = true;
+            }
+            if (Character.isDigit(c)){
+                contientDigit = true;
+            }
+            if (Character.isWhitespace(c)){
+                contientWhiteSpace = true;
+            }
+
+        return contientUneMaj && contientDigit && contientWhiteSpace;
+        }
 
         return false;
     }
